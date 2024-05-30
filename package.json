@@ -1,27 +1,60 @@
 {
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
+  "name": "pintura-example-react",
+  "version": "0.0.0",
+  "author": "Rik Schennink at PQINA",
+  "license": "https://pqina.nl/pintura/license/",
+  "homepage": "https://pqina.nl/",
+  "description": "A Pintura React example Project",
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.451.0",
-    "@aws-sdk/s3-presigned-post": "^3.451.0",
-    "@aws-sdk/signature-v4-crt": "^3.451.0",
-    "@types/node": "20.9.0",
-    "@types/react": "18.2.37",
-    "@types/react-dom": "18.2.15",
-    "aws-crt": "^1.19.0",
-    "aws-sdk": "^2.1497.0",
-    "encoding": "^0.1.13",
-    "eslint": "8.53.0",
-    "eslint-config-next": "14.0.2",
-    "next": "^14.0.2",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "typescript": "5.2.2",
-    "uuid": "^9.0.1"
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/icons-material": "^5.15.19",
+    "@mui/material": "^5.15.19",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.18",
+    "@pqina/filepond-plugin-image-editor": "^9.x",
+    "@pqina/pintura": "^8.x",
+    "@pqina/react-pintura": "^9.x",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "filepond": "^4.x",
+    "filepond-plugin-file-poster": "^2.x",
+    "filepond-plugin-image-preview": "^4.6.12",
+    "print-js": "^1.6.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-filepond": "^7.1.2",
+    "react-router": "^6.11.1",
+    "react-router-dom": "^6.11.1",
+    "react-scripts": "5.0.1",
+    "react-to-print": "^2.15.1",
+    "styled-components": "^6.1.11",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "dev": "react-scripts start",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
