@@ -65,7 +65,7 @@ function AppAppBar({ mode, toggleColorMode }) {
                   ? 'rgba(255, 255, 255, 0.4)'
                   : 'rgba(0, 0, 0, 0.4)',
               backdropFilter: 'blur(24px)',
-              maxHeight: 40,
+              maxHeight: 150,
               border: '1px solid',
               borderColor: 'divider',
               boxShadow:
@@ -83,22 +83,14 @@ function AppAppBar({ mode, toggleColorMode }) {
                 px: 0,
               }}
             >
-              {/* <img
+              <img
                 src={
-                  'https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/61f12e6faf73568658154dae_SitemarkDefault.svg'
+                  'YGBKM-Logo_Tag.png'
                 }
                 style={logoStyle}
-                alt="logo of sitemark"
-              /> */}
+                alt="YGBKM-Logo"
+              />
               <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                <MenuItem
-                  onClick={() => scrollToSection('features')}
-                  sx={{ py: '6px', px: '12px' }}
-                >
-                  <Typography variant="body2" color="text.primary">
-                    Add Kitten Logo
-                  </Typography>
-                </MenuItem>
                 <MenuItem
                   onClick={() => scrollToSection('faq')}
                   sx={{ py: '6px', px: '12px' }}

@@ -1,5 +1,10 @@
 import * as React from "react";
 import ReactToPrint from "react-to-print";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import LocalPrintshopIcon from "@mui/icons-material/LocalPrintshop";
 
 import { ComponentToPrint } from "../ComponentToPrint";
 
@@ -13,7 +18,6 @@ export class ClassComponent extends React.PureComponent {
       isLoading: false,
     };
   }
- 
 
   handleAfterPrint = () => {
     console.log("`onAfterPrint` called"); // tslint:disable-line no-console
@@ -29,10 +33,7 @@ export class ClassComponent extends React.PureComponent {
 
     return new Promise((resolve) => {
       setTimeout(() => {
-        this.setState(
-          { isLoading: false },
-          resolve
-        );
+        this.setState({ isLoading: false }, resolve);
       }, 2000);
     });
   };
@@ -53,28 +54,55 @@ export class ClassComponent extends React.PureComponent {
     // return <button onClick={() => alert('This will not work')}>Print this out!</button>;
 
     // Good
-    return <button>Print Stickers</button>;
+    return (
+      <Button variant="contained" startIcon={<LocalPrintshopIcon />}>
+        Print Stickers
+      </Button>
+    );
   };
 
   render() {
-    console.log("This is the files 1: " + this.props.files)
-    console.log(this.props.files)
+    console.log("Class component: ")
+    console.log(this.props.files);
     return (
-      <div>
-        <ReactToPrint
-          content={this.reactToPrintContent}
-          documentTitle="AwesomeFileName"
-          onAfterPrint={this.handleAfterPrint}
-          onBeforeGetContent={this.handleOnBeforeGetContent}
-          onBeforePrint={this.handleBeforePrint}
-          removeAfterPrint
-          trigger={this.reactToPrintTrigger}
+      <Container
+        sx={{
+          position: "relative",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <Box id="print-button">
+          <ReactToPrint
+            content={this.reactToPrintContent}
+            documentTitle="AwesomeFileName"
+            onAfterPrint={this.handleAfterPrint}
+            onBeforeGetContent={this.handleOnBeforeGetContent}
+            onBeforePrint={this.handleBeforePrint}
+            removeAfterPrint
+            trigger={this.reactToPrintTrigger}
+          />
+        </Box>
+        <Box
+          id="print-screen-loading"
+          sx={{
+            pt: { xs: 4, sm: 6 },
+            gap: { xs: 3, sm: 6 },
+          }}
+        >
+          {this.state.isLoading && (
+            <Typography variant="body2" fontWeight={600} className="indicator">
+              Loading Print Screen...
+            </Typography>
+          )}
+        </Box>
+        <ComponentToPrint
+          files={this.props.files}
+          ref={this.setComponentRef}
+          text={this.state.text}
         />
-        {this.state.isLoading && (
-          <p className="indicator">Loading Print Screen...</p>
-        )}
-        <ComponentToPrint files={this.props.files} ref={this.setComponentRef} text={this.state.text} />
-      </div>
+      </Container>
     );
   }
 }
