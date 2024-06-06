@@ -62,8 +62,6 @@ export class ClassComponent extends React.PureComponent {
   };
 
   render() {
-    console.log("Class component: ")
-    console.log(this.props.files);
     return (
       <Container
         sx={{

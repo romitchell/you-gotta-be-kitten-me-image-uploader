@@ -17,8 +17,6 @@ export class ComponentToPrint extends React.PureComponent {
     const bottomMargin = 0.25*12;
     const rightMargin = 0.1*12;
     const spacing = 8;
-    console.log("Component to print: ")
-    console.log(this.props.files)
     return (
       <div className="relativeCSS">
         <style type="text/css" media="print">
