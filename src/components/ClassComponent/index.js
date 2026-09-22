@@ -98,7 +98,7 @@ export class ClassComponent extends React.PureComponent {
         <ComponentToPrint
           files={this.props.files}
           ref={this.setComponentRef}
-          text={this.state.text}
+          isLoadingFile={this.props.isLoadingFile}
         />
       </Container>
     );

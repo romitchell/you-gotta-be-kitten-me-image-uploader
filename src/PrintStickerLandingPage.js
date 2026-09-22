@@ -71,7 +71,7 @@ export default function PrintStickersLandingPage() {
       <AppAppBar mode={mode} toggleColorMode={toggleColorMode} />
       <Box sx={{ bgcolor: 'background.default', paddingTop:"5em" }}>
         <Printer/>
-        <FAQ/>
+        {/* <FAQ/> */}
         <Divider />
         <Footer />
       </Box>
