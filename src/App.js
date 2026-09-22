@@ -10,6 +10,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<PrintStickersLandingPage />}></Route>
+          <Route path="/printer" element={<PrintStickersLandingPage />}></Route>
         </Routes>
       </div>
     </Router>

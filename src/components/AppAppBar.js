@@ -83,20 +83,22 @@ function AppAppBar({ mode, toggleColorMode }) {
                 px: 0,
               }}
             >
-              <img
-                src={
-                  'YGBKM-Logo_Tag.png'
-                }
-                style={logoStyle}
-                alt="YGBKM-Logo"
-              />
+              <a href='https://www.yougottabekittenmegame.com/'>
+                <img
+                  src={
+                    'YGBKM-Logo_Tag.png'
+                  }
+                  style={logoStyle}
+                  alt="YGBKM-Logo"
+                />
+              </a>
               <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                 <MenuItem
                   onClick={() => scrollToSection('faq')}
                   sx={{ py: '6px', px: '12px' }}
                 >
                   <Typography variant="body2" color="text.primary">
-                    FAQ
+                    Kitten Card Studio
                   </Typography>
                 </MenuItem>
               </Box>

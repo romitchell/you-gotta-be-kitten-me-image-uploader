@@ -1,6 +1,7 @@
 import * as React from "react";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
+import { Box, Button, Typography } from "@mui/material";
 
 export class ComponentToPrint extends React.PureComponent {
   constructor(props) {
@@ -29,7 +30,7 @@ export class ComponentToPrint extends React.PureComponent {
         <ImageList
           sx={{ 
             width: (widthSize+(leftMargin*spacing+rightMargin*spacing))*2, 
-            height: ((heightSize+(bottomMargin*spacing)) * Math.round(this.props.files.length/2)),
+            height: ((heightSize+(bottomMargin*spacing)) * Math.round(this.props.files.length/2))*!this.props.isLoadingFile,
             mt: topMargin,
           }}
           cols={2}
@@ -37,30 +38,44 @@ export class ComponentToPrint extends React.PureComponent {
         >
           {this.props.files.map(
             (file) =>
-              file.getMetadata() && (
-                <ImageListItem
-                  key={file.id}
-                  sx={{
-                    width: widthSize,
-                    height: heightSize,
-                    mb: bottomMargin,
-                    ml: leftMargin,
-                    mr: rightMargin,
-                  }}
-                >
-                  <img
-                    srcSet={`${file.getMetadata().poster}`}
-                    src={`${file.getMetadata().poster}`}
-                    alt={file.name}
-                    loading="lazy"
-                    width={96*3}
-                    height={96*2}
-                    style={{ borderRadius: "5%"}}
-                  />
-                </ImageListItem>
-              )
-          )}
+                file.getMetadata() && !this.props.isLoadingFile && (
+                  <ImageListItem
+                    key={file.id}
+                    sx={{
+                      width: widthSize,
+                      height: heightSize,
+                      mb: bottomMargin,
+                      ml: leftMargin,
+                      mr: rightMargin,
+                    }}
+                  >
+                    <img
+                      srcSet={`${file.getMetadata().poster}`}
+                      src={`${file.getMetadata().poster}`}
+                      alt={file.name}
+                      loading="lazy"
+                      width={96*3}
+                      height={96*2}
+                      style={{ borderRadius: "5%"}}
+                    />
+                  </ImageListItem>
+                )
+            )}
         </ImageList>
+        {
+        this.props.isLoadingFile && 
+        (
+            <Typography
+            component="h2"
+            variant="h4"
+            color="text.primary"
+            sx={{
+              width: '100%' ,
+              textAlign: { sm: "left", md: "center" },
+            }}>
+              Image is Loading...
+            </Typography>
+          )}
       </div>
     );
   }

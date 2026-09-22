@@ -50,13 +50,26 @@ setPlugins(plugin_crop, plugin_finetune, plugin_filter, plugin_annotate);
 
 export default function Printer() {
   const [files, setFiles] = useState([]);
+  const [isLoadingFile, setIsLoadingFile] = useState(false)
+
   function updateEditedFile(file, output)  {
     setFiles([...files])
+    console.log(isLoadingFile)
+  }
+
+  function isLoaded() {
+    setIsLoadingFile(false)
+    console.log(isLoadingFile)
+  }
+
+  function isLoading() {
+    setIsLoadingFile(true)
+    console.log(isLoadingFile)
   }
 
   return (
     <Container
-      id="faq"
+      id="printer"
       sx={{
         pt: { xs: 4, sm: 12 },
         pb: { xs: 8, sm: 16 },
@@ -79,13 +92,15 @@ export default function Printer() {
         Upload Images to Edit and Print
       </Typography>
       <Box sx={{ width: "100%" }}>
-        <ClassComponent files={files} />
+        <ClassComponent files={files} isLoadingFile={isLoadingFile}/>
         {/* <button >Refresh Images</button> */}
         <Divider />
         <FilePond
           files={files}
           onupdatefiles={setFiles}
           onpreparefile={updateEditedFile}
+          onaddfilestart={isLoading}
+          onaddfile={isLoaded}
           allowMultiple={true}
           allowImagePreview={true}
           filePosterMaxHeight={200}
