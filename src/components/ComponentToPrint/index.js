@@ -1,7 +1,7 @@
 import * as React from "react";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
-import { Box, Button, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 
 export class ComponentToPrint extends React.PureComponent {
   constructor(props) {

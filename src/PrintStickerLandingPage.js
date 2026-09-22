@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import AutoAwesomeRoundedIcon from '@mui/icons-material/AutoAwesomeRounded';
 import AppAppBar from './components/AppAppBar';
-import FAQ from './components/FAQ'
 import Footer from './components/Footer';
 import Printer from './components/Printer'
 
